@@ -1,0 +1,32 @@
+// App.js
+import React, { useState } from 'react';
+import { View, Text, Button, StyleSheet } from 'react-native';
+
+export default function App() {
+  const [message, setMessage] = useState("Olá, Bem-vindos ao nosso App!");
+
+  const changeMessage = () => {
+    setMessage("Olá, Programadores Mirins!");
+  };
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.message}>{message}</Text>
+      <Button title="Clique aqui" onPress={changeMessage} />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#f0f8ff',
+  },
+  message: {
+    fontSize: 20,
+    marginBottom: 20,
+    color: '#333',
+  },
+});
