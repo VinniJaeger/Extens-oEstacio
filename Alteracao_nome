@@ -1,0 +1,41 @@
+### Alterações no Código Original
+### Importação do TextInput:
+### Certifique-se de que TextInput está importado junto com os outros componentes.
+
+import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+
+### Estados Adicionais:
+### Adicione um estado name para armazenar o nome digitado.
+
+const [name, setName] = useState("");
+const [message, setMessage] = useState("Digite seu nome para começar!");
+
+### Função updateMessage:
+### Inclua a função updateMessage, que será usada para atualizar a mensagem com o nome.
+
+const updateMessage = () => {
+  setMessage(`Olá, ${name}! Bem-vindo ao nosso App!`);
+};
+
+### Componente TextInput e Botão:
+### Adicione o TextInput abaixo do Text da mensagem e atualize o botão para chamar a função updateMessage.
+
+<TextInput
+  style={styles.input}
+  placeholder="Digite seu nome"
+  value={name}
+  onChangeText={text => setName(text)}
+/>
+<Button title="Mostrar Mensagem" onPress={updateMessage} />
+
+### Estilo para o TextInput:
+### Adicione o estilo do TextInput no objeto styles.
+
+input: {
+  height: 40,
+  borderColor: '#888',
+  borderWidth: 1,
+  marginBottom: 10,
+  paddingHorizontal: 10,
+  width: '80%',
+},
