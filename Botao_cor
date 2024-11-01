@@ -1,0 +1,19 @@
+### Nova ação no botão que altera a mensagem e a cor de fundo com cada clique
+### Vamos criar um array de mensagens e um de cores, além de um contador para percorrer essas opções de forma cíclica.
+
+const messages = ["Olá, Bem-vindos ao nosso App!", "Você está fazendo um ótimo trabalho!", "Vamos programar juntos!"];
+const colors = ["#f0f8ff", "#ffefd5", "#add8e6"];
+const [index, setIndex] = useState(0); // Para alternar entre mensagens e cores
+
+### Modifique a Função changeMessage:
+### Expanda changeMessage para alternar a mensagem e a cor do fundo com cada clique, avançando o índice no array e reiniciando quando chegar ao final.
+
+const changeMessage = () => {
+  setMessage(messages[index]);
+  setIndex((index + 1) % messages.length); // Avança o índice e volta ao início ao chegar no fim
+};
+
+### Adicione Estilo Dinâmico para o Fundo:
+### Altere o estilo backgroundColor no contêiner para que mude conforme o índice de cor.
+
+<View style={[styles.container, { backgroundColor: colors[index] }]}>
